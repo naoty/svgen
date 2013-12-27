@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Svgen::VERSION
   spec.authors       = ["Naoto Kaneko"]
   spec.email         = ["naoty.k@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{SVG generator}
+  spec.homepage      = "http://github.com/naoty/svgen"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
