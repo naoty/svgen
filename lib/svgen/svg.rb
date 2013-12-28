@@ -2,27 +2,13 @@ require "builder"
 
 module SVGen
   class SVG
-    def initialize(attrs = {})
+    include Nestable
+
+    def initialize(attrs = {}, &block)
       @children = []
       @width = attrs[:width] || 400
       @height = attrs[:height] || 300
-      yield(self) if block_given?
-    end
-
-    def rect(attrs = {})
-      @children << Element::Rect.new(attrs)
-    end
-
-    def circle(attrs = {})
-      @children << Element::Circle.new(attrs)
-    end
-
-    def text(text, attrs = {})
-      @children << Element::Text.new(text, attrs)
-    end
-
-    def line(attrs = {})
-      @children << Element::Line.new(attrs)
+      block.call(self) if block_given?
     end
 
     def generate

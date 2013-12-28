@@ -39,5 +39,15 @@ describe SVGen::SVG do
         svg.line(x1: 10, y1: 10, x2: 50, y2: 50, stroke: "black", :"stroke-width" => "5")
       end
     end
+
+    it "returns SVG data with group" do
+      @sample = Pathname.new("spec/support/group.svg")
+      @svg = SVGen::SVG.new(width: 600, height: 300) do |svg|
+        svg.g(stroke: "red", "stroke-width" => 5) do |g|
+          g.rect(width: "300", height: "200", fill: "red")
+          g.circle(cx: "50", cy: "50", r: "10", fill: "blue")
+        end
+      end
+    end
   end
 end
