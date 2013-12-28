@@ -21,6 +21,10 @@ module SVGen
       @children << Element::Text.new(text, attrs)
     end
 
+    def line(attrs = {})
+      @children << Element::Line.new(attrs)
+    end
+
     def generate
       builder = Builder::XmlMarkup.new(indent: 2)
       builder.instruct! :xml, version: "1.0", encoding: "UTF-8", standalone: "no"

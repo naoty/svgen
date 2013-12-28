@@ -32,5 +32,12 @@ describe SVGen::SVG do
         svg.text("Sample Text", x: 20, y: 20)
       end
     end
+
+    it "returns SVG data with line" do
+      @sample = Pathname.new("spec/support/line.svg")
+      @svg = SVGen::SVG.new(width: 600, height: 300) do |svg|
+        svg.line(x1: 10, y1: 10, x2: 50, y2: 50, stroke: "black", :"stroke-width" => "5")
+      end
+    end
   end
 end

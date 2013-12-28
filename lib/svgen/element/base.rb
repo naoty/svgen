@@ -4,6 +4,8 @@ module SVGen
       def initialize(attrs = {})
         @x = attrs[:x] || 0
         @y = attrs[:y] || 0
+        @stroke = attrs[:stroke]
+        @stroke_width = attrs[:"stroke-width"] || attrs["stroke-width"]
       end
 
       def generate(svg)
@@ -15,8 +17,11 @@ module SVGen
       def attributes
         attrs = {}
         instance_variables.each do |instance_variable|
-          key = instance_variable.to_s.gsub(/@/) { "" }.to_sym
-          attrs[key] = instance_variable_get(instance_variable)
+          value = instance_variable_get(instance_variable)
+          next if value.nil?
+          key = instance_variable.to_s.gsub(/@/) { "" }
+          key = key.gsub(/_/) { "-" }
+          attrs[key.to_sym] = value
         end
         attrs
       end

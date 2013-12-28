@@ -5,7 +5,7 @@ module SVGen
         super(attrs)
         @width = attrs[:width] || 100
         @height = attrs[:height] || 100
-        @fill = attrs[:fill] || "white"
+        @fill = attrs[:fill] || "rgba(0, 0, 0, 0)"
       end
 
       def generate(svg)
