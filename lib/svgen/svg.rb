@@ -13,6 +13,10 @@ module SVGen
       @children << Element::Rect.new(attrs)
     end
 
+    def circle(attrs = {})
+      @children << Element::Circle.new(attrs)
+    end
+
     def generate
       builder = Builder::XmlMarkup.new(indent: 2)
       builder.instruct! :xml, version: "1.0", encoding: "UTF-8", standalone: "no"

@@ -4,13 +4,13 @@ SVG generator
 
 ## Install
 
-```
+```sh
 $ gem install svgen
 ```
 
 ## Usage
 
-```
+```rb
 require "svgen"
 
 svg = SVGen::SVG.new(width: 600, height: 400) do |svg|
