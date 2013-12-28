@@ -25,5 +25,12 @@ describe SVGen::SVG do
         svg.circle(cx: 100, cy: 100, r: 50, fill: "red")
       end
     end
+
+    it "returns SVG data with text" do
+      @sample = Pathname.new("spec/support/text.svg")
+      @svg = SVGen::SVG.new(width: 600, height: 300) do |svg|
+        svg.text("Sample Text", x: 20, y: 20)
+      end
+    end
   end
 end
