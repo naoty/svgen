@@ -1,5 +1,6 @@
-require "svgen/version"
+lib = File.dirname(__FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-module Svgen
-  # Your code goes here...
-end
+require "svgen/svg"
+require "svgen/element/base"
+require "svgen/element/rect"
