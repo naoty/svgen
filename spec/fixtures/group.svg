@@ -1,6 +1,6 @@
 <svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
   <g stroke="red" stroke-width="5">
-    <rect x="0" y="0" width="300" height="200" fill="red"/>
+    <rect width="300" height="200" fill="red"/>
     <circle cx="50" cy="50" r="10" fill="blue"/>
   </g>
 </svg>

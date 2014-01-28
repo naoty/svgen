@@ -1,21 +1,13 @@
 module SVGen
   module Element
-    class Text < Base
+    class Text
       def initialize(text, attrs = {})
-        super(attrs)
         @text = text
+        @attrs = attrs
       end
 
       def generate(svg)
-        svg.text(@text, attributes)
-      end
-
-      protected
-
-      def attributes
-        attrs = super
-        attrs.delete(:text)
-        attrs
+        svg.text(@text, @attrs)
       end
     end
   end
