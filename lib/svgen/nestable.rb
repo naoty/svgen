@@ -16,6 +16,10 @@ module SVGen
       @children << Element::Line.new(attrs)
     end
 
+    def path(attrs = {})
+      @children << Element::Path.new(attrs)
+    end
+
     def group(attrs = {}, &block)
       @children << Element::Group.new(attrs, &block)
     end

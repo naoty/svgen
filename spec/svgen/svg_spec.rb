@@ -3,6 +3,7 @@ require "spec_helper"
 describe SVGen::SVG do
   describe "#generate" do
     let(:fixtures_path) { Pathname.new("spec/fixtures") }
+
     after do
       data = @svg.generate
       expect(data).to eq @sample.read
@@ -38,6 +39,13 @@ describe SVGen::SVG do
       @sample = fixtures_path.join("line.svg")
       @svg = SVGen::SVG.new(width: 600, height: 300) do |svg|
         svg.line(x1: 10, y1: 10, x2: 50, y2: 50, stroke: "black", :"stroke-width" => "5")
+      end
+    end
+
+    it "returns SVG data with path" do
+      @sample = fixtures_path.join("path.svg")
+      @svg = SVGen::SVG.new(width: 600, height: 300) do |svg|
+        svg.path(d: "M 10 80 Q 95 10 180 80", stroke: "black", fill: "none")
       end
     end
 
