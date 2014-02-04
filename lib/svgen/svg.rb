@@ -16,5 +16,15 @@ module SVGen
         @children.each { |child| child.generate(svg) }
       end
     end
+
+    def method_missing(name, *args)
+      case name.to_s
+      when /^(.+)=$/
+        super unless value = args.first
+        @attrs.has_key?($1) ? @attrs[$1] = value : @attrs[$1.to_sym] = value
+      else
+        @attrs[name] || @attrs[name.to_sym]
+      end
+    end
   end
 end

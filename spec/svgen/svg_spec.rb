@@ -1,6 +1,14 @@
 require "spec_helper"
 
 describe SVGen::SVG do
+  describe "attributes accessor" do
+    it "set attributes value" do
+      svg = SVGen::SVG.new(width: 600, height: 300)
+      svg.height = 400
+      expect(svg.height).to eq 400
+    end
+  end
+
   describe "#generate" do
     let(:fixtures_path) { Pathname.new("spec/fixtures") }
 
